@@ -51,7 +51,8 @@ import { Calendar } from "@/components/ui/calendar"
 
 
 const formSchema= z.object({
-    destination:z.string().min(1,{message:"Destination is required"}),
+    country:z.string().min(1,{message:"Destination is required"}),
+    location:z.string().optional(),
     datefrom:z.string().min(1,{message:'Date From is required'}),
     dateto:z.string().min(1,{message:'Date To is required'}),
     budget:z.string().min(1,{message:'Budget is required'})
@@ -65,7 +66,7 @@ export const DashboardForm = () => {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver:zodResolver(formSchema),
         defaultValues:{
-            destination:'',
+            country:'',
             datefrom:'',
             dateto:'',
             budget:''
@@ -76,7 +77,7 @@ export const DashboardForm = () => {
         setPending(true)
         setError(null)
         authClient.signUp.email({
-            name:data.destination,
+            name:data.country,
             email:data.datefrom,
             password:data.dateto,
             callbackURL:"/home"
@@ -110,7 +111,7 @@ export const DashboardForm = () => {
     const [date, setDate] = useState<Date | undefined>(new Date())
 
     return(
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 pt-3">
         <Card className="overflow-hidden p-0">
             <CardContent className="flex">
                 <Form {...form}>
@@ -118,13 +119,34 @@ export const DashboardForm = () => {
                         <div className="flex flex-row gap-6">
                                 <FormField
                                 control={form.control}
-                                name="destination"
+                                name="country"
+                                render={({field})=>
+                                <FormItem>
+                                    <FormControl>
+                                        <Select>
+                                            <SelectTrigger className="w-[180px]">
+                                                <SelectValue placeholder="Country" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectGroup>
+                                                <SelectItem value="nepal">Nepal</SelectItem>
+                                                </SelectGroup>
+                                            </SelectContent>
+                                            </Select>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                                }
+                                />
+                                <FormField
+                                control={form.control}
+                                name="location"
                                 render={({field})=>
                                 <FormItem>
                                     <FormControl>
                                         <Input
                                             type="text"
-                                            placeholder="Destination"
+                                            placeholder="Location(optional)"
                                             {...field}
                                         />
                                     </FormControl>
