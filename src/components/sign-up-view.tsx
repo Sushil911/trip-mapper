@@ -21,7 +21,6 @@ import {
  } from "@/components/ui/form"
 import { Alert,AlertTitle } from "@/components/ui/alert"
 import { OctagonAlertIcon } from "lucide-react"
-// import { authClient } from "@/lib/auth-client"
 import { useRouter } from "next/navigation"
 import { authClient } from "@/lib/auth-client"
 
@@ -59,11 +58,11 @@ export const SignUpView = () => {
             name:data.name,
             email:data.email,
             password:data.password,
-            callbackURL:"/"
+            callbackURL:"/home"
         },{
             onSuccess: () => {
                 setPending(false)
-                router.push("/")
+                router.push("/home")
             },
             onError : ({error}) => {
                 setError(error.message)
@@ -71,12 +70,12 @@ export const SignUpView = () => {
         })
     }
 
-    const onSocial = (provider:"facebook"|"google") => {
+    const onSocial = (provider:"google") => {
         setPending(true)
         setError(null)
         authClient.signIn.social({
             provider:provider,
-            callbackURL:"/"
+            callbackURL:"/home"
         },{
             onSuccess: () => {
                 setPending(false)
@@ -196,7 +195,7 @@ export const SignUpView = () => {
                                     Or continue with
                                 </span>
                             </div>
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="w-full">
                                 <Button
                                 onClick={()=>{onSocial('google')}}
                                 disabled={pending}
@@ -205,15 +204,6 @@ export const SignUpView = () => {
                                 className="w-full"
                                 >
                                     <FaGoogle />
-                                </Button>
-                                <Button
-                                onClick={()=>{onSocial('facebook')}}
-                                disabled={pending}
-                                variant="outline"
-                                type="button"
-                                className="w-full"
-                                >
-                                    <FaFacebook />
                                 </Button>
                             </div>
                             <div className="text-center text-sm">

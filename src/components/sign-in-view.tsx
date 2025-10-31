@@ -49,10 +49,10 @@ export const SignInView = () => {
         authClient.signIn.email({
             email:data.email,
             password:data.password,
-            callbackURL:"/"
+            callbackURL:"/home"
         },{
             onSuccess: () => {
-                router.push("/")
+                router.push("/home")
                 setPending(false)
             },
             onError : ({error}) => {
@@ -61,12 +61,12 @@ export const SignInView = () => {
         })
     }
 
-    const onSocial = (provider:"github"|"google") => {
+    const onSocial = (provider:"google") => {
         setPending(true)
         setError(null)
         authClient.signIn.social({
             provider:provider,
-            callbackURL:"/"
+            callbackURL:"/home"
         },{
             onSuccess: () => {
                 setPending(false)
@@ -148,7 +148,7 @@ export const SignInView = () => {
                                     Or continue with
                                 </span>
                             </div>
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="w-full">
                                 <Button
                                 onClick={()=>onSocial("google")}
                                 disabled={pending}
@@ -157,15 +157,6 @@ export const SignInView = () => {
                                 className="w-full"
                                 >
                                     <FaGoogle />
-                                </Button>
-                                <Button
-                                onClick={()=>onSocial("github")}
-                                disabled={pending}
-                                variant="outline"
-                                type="button"
-                                className="w-full"
-                                >
-                                    <FaFacebook />
                                 </Button>
                             </div>
                             <div className="text-center text-sm">
