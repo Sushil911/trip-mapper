@@ -1,5 +1,5 @@
 "use client"
-import { BotIcon, StarIcon, VideoIcon } from "lucide-react"
+import { AirplayIcon, BotIcon, FanIcon, StarIcon, VideoIcon } from "lucide-react"
 
 import {
     Sidebar,
@@ -13,6 +13,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem
 } from "@/components/ui/sidebar"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Separator } from "@/components/ui/separator"
@@ -23,14 +24,14 @@ import { DashboardUserButton } from "./dashboard-user-button"
 
 const firstSection = [
     {
-        icon:VideoIcon,
-        label:"Meetings",
-        href:'/meetings'
+        icon:AirplayIcon,
+        label:"Travel",
+        href:'/travel'
     },
     {
-        icon:BotIcon,
-        label:"Agents",
-        href:'/agents'
+        icon:FanIcon,
+        label:"Move",
+        href:'/move'
     }
 ]
 
