@@ -217,7 +217,7 @@ export const SignUpView = () => {
 
                 <div className="bg-radial from-sidebar-accent to-sidebar relative hidden md:flex flex-col gap-y-4 justify-center items-center">
                     <img src='/globe.svg' alt="logo" className="h-[92px] w-[92px]" />
-                    <p className="text-2xl font-semibold text-white">
+                    <p className="text-2xl font-semibold text-black">
                         Tripmapper
                     </p>
                 </div>
