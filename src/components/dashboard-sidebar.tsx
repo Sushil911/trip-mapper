@@ -1,5 +1,5 @@
 "use client"
-import { AirplayIcon, BotIcon, FanIcon, HomeIcon, MapIcon, StarIcon, VideoIcon } from "lucide-react"
+import { AirplayIcon, BotIcon, BrainIcon, EyeIcon, FanIcon, HomeIcon, MapIcon, MemoryStick, MemoryStickIcon, StarIcon, VideoIcon } from "lucide-react"
 
 import {
     Sidebar,
@@ -20,6 +20,8 @@ import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
 import { DashboardUserButton } from "./dashboard-user-button"
+import { Button } from "./ui/button"
+import { FaMemory } from "react-icons/fa"
 
 
 const firstSection = [
@@ -37,6 +39,16 @@ const firstSection = [
         icon:AirplayIcon,
         label:"Travel",
         href:'/travel'
+    },
+    {
+        icon:BrainIcon,
+        label:"Make your memory",
+        href:'/memory'
+    },
+     {
+        icon:EyeIcon,
+        label:"Find Travelling Partner",
+        href:'/friends'
     }
 ]
 

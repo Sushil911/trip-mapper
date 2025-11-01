@@ -1,5 +1,7 @@
+import { integer } from "drizzle-orm/gel-core";
 import { pgTable, text, timestamp, boolean, pgEnum } from "drizzle-orm/pg-core";
 import { nanoid } from "nanoid";
+import { number } from "zod";
 
 export const roleEnum = pgEnum("role",[
   "tourist",
@@ -51,4 +53,15 @@ export const verification = pgTable("verification", {
   expiresAt: timestamp('expires_at').notNull(),
   createdAt: timestamp('created_at').$defaultFn(() => /* @__PURE__ */ new Date()),
   updatedAt: timestamp('updated_at').$defaultFn(() => /* @__PURE__ */ new Date())
+});
+
+export const locations = pgTable("locations", {
+  id: text('id').primaryKey(),
+  locations: text('locations').notNull(),
+  description: text('description').notNull(),
+  rating: text('rating').notNull(),
+  createdAt: timestamp('created_at').$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
+  updatedAt: timestamp('updated_at').$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
+  userId: text('user_id').notNull().references(()=> user.id, { onDelete: 'cascade' }),
+  again:boolean('again').$defaultFn(() => true).notNull(),
 });
