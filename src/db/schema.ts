@@ -1,10 +1,16 @@
 import { pgTable, text, timestamp, boolean, pgEnum } from "drizzle-orm/pg-core";
 import { nanoid } from "nanoid";
 
+export const roleEnum = pgEnum("role",[
+  "tourist",
+  "guide"
+])
+
 export const user = pgTable("user", {
   id: text('id').primaryKey(),
   name: text('name').notNull(),
   email: text('email').notNull().unique(),
+  role: roleEnum("role").default("tourist").notNull(),
   emailVerified: boolean('email_verified').$defaultFn(() => false).notNull(),
   image: text('image'),
   createdAt: timestamp('created_at').$defaultFn(() => /* @__PURE__ */ new Date()).notNull(),
