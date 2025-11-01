@@ -2,6 +2,7 @@
 
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function HeroSectionOne() {
@@ -109,7 +110,7 @@ const Navbar = () => {
   return (
     <nav className="flex w-full items-center justify-between border-t border-b border-neutral-200 px-4 py-4 dark:border-neutral-800">
       <div className="flex items-center gap-2">
-        <div className="size-7 rounded-full bg-gradient-to-br from-green-500 to-pink-500" />
+        <Image src="/logo.svg" alt="logo" width={30} height={30} />
         <h1 className="text-base font-bold md:text-2xl">Trip Mapper</h1>
       </div>
       <Link href="/sign-up">

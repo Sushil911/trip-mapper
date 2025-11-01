@@ -1,5 +1,5 @@
 "use client"
-import { AirplayIcon, BotIcon, FanIcon, StarIcon, VideoIcon } from "lucide-react"
+import { AirplayIcon, BotIcon, FanIcon, HomeIcon, MapIcon, StarIcon, VideoIcon } from "lucide-react"
 
 import {
     Sidebar,
@@ -24,14 +24,19 @@ import { DashboardUserButton } from "./dashboard-user-button"
 
 const firstSection = [
     {
+        icon:HomeIcon,
+        label:"Home",
+        href:'/home'
+    },
+    {
+        icon:MapIcon,
+        label:"Map",
+        href:'/map'
+    },
+     {
         icon:AirplayIcon,
         label:"Travel",
         href:'/travel'
-    },
-    {
-        icon:FanIcon,
-        label:"Move",
-        href:'/move'
     }
 ]
 
@@ -46,10 +51,11 @@ const secondSection = [
 export const DashboardSidebar = () => {
     const pathname=usePathname()
   return (
+    <>
     <Sidebar>
         <SidebarHeader className="text-sidebar-accent-foreground">
             <Link href='/' className="flex items-center gap-2 px-2 pt-2">
-                <Image src='/globe.svg' alt="logo" height={36} width={36} />
+                <Image src="/logo.svg" alt="logo" width={30} height={30} />
                 <p className="text-2xl font-semibold"> Trip Mapper </p>
             </Link>
         </SidebarHeader>
@@ -115,5 +121,6 @@ export const DashboardSidebar = () => {
             <DashboardUserButton />
         </SidebarFooter>
     </Sidebar>
+    </>
   )
 }

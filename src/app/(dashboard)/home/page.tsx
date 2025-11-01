@@ -5,42 +5,56 @@ import React from 'react'
 export const hotels = [
   {
     id: 1,
-    image: './file.svg',
-    name: 'Himalayan View Resort',
-    price: 120,
-    bedroom: '2 Bed • 1 Bath',
+    image: '/mteverest.jpeg',
+    name: 'Mount Everest',
+     description:
+      "World's highest mountain and ultimate trekking destination in the Himalayas.",
+    type: 'Trekking',
     rating: 4.8,
   },
   {
     id: 2,
-    image: 'globe.svg',
-    name: 'Everest Grand Hotel',
-    price: 200,
-    bedroom: '3 Bed • 2 Bath',
+    image: '/lumbini.webp',
+    name: 'Lumbini',
+     description:
+      "Birthplace of Lord Buddha and important pilgrimage site for Buddhists worldwide.",
+    type: "Historic",
     rating: 4.9,
   },
   {
     id: 3,
-    image: 'next.svg',
-    name: 'Lakeside Retreat',
-    price: 95,
-    bedroom: '1 Bed • 1 Bath',
-    rating: 4.5,
+    image: '/pashupati.webp',
+    name: 'Pashupatinath Temple',
+    description:
+      "Sacred Hindu temple  and UNESCO World Heritage site in Kathmandu.",
+    type: "Temple",
+    rating: 4.8,
   },
   {
     id: 4,
-    image: 'vercel.svg',
-    name: 'Kathmandu Boutique Stay',
-    price: 150,
-    bedroom: '2 Bed • 2 Bath',
+    image: '/pokhara.webp',
+    name: 'Pokhara',
+    description:
+      "Beautiful lakeside city with stunning views of Annapurna mountain range.",
+    type: "Beautiful city",
     rating: 4.7,
   },
   {
     id: 5,
-    image: 'window.svg',
-    name: 'Pokhara Paradise Hotel',
-    price: 180,
-    bedroom: '3 Bed • 2 Bath',
+    image: '/chitwannp.webp',
+    name: 'Chitwan National Park',
+     description:
+      "UNESCO World Heritage site with wildlife including Bengal tigers and one-horned rhinoceros.",
+    type: "Nature",
+    rating: 4.9,
+  },
+    {
+    id: 6,
+    image: '/annapurna.webp',
+    name: 'Mount Annapurna',
+     description:
+      "Classic trekking route through diverse landscapes and traditional villages.",
+    type: "Trekking",
     rating: 4.9,
   },
 ];

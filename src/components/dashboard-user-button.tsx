@@ -128,12 +128,6 @@ export const DashboardUserButton = () => {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
-                    className="cursor-pointer flex items-center justify-between"
-                >
-                    Billing
-                    <CreditCardIcon className="size-4" />
-                </DropdownMenuItem>
-                <DropdownMenuItem
                     onClick={onLogout}
                     className="cursor-pointer flex items-center justify-between"
                 >
